@@ -1,4 +1,4 @@
-import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +20,9 @@ import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import { MemberDetailResolver, MemberListResolver } from './_resolvers/member-resolver';
+import { MemberDetailResolver, MemberListResolver, MemberEditResolver } from './_resolvers/member-resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { PreventUnsavedChanges } from './_guards/prevent.guard';
 
 export function getToken() {
    return localStorage.getItem('token');
@@ -36,7 +38,8 @@ export function getToken() {
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -59,7 +62,9 @@ export function getToken() {
       AuthService,
       ErrorInterceptorProvider,
       MemberDetailResolver,
-      MemberListResolver
+      MemberListResolver,
+      MemberEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent

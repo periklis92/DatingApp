@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery-9';
@@ -10,7 +11,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -42,18 +43,20 @@ export function getToken() {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       TabsModule.forRoot(),
       NgxGalleryModule,
       FileUploadModule,
+      BsDatepickerModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter: getToken,

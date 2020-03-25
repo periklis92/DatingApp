@@ -1,0 +1,57 @@
+img.img-thumbnail {
+    height: 100px;
+    min-width: 100px !important;
+    margin-bottom: 2px;;
+}
+
+.nv-file-over {
+    border: dotted 3px red;
+}
+
+input[type=file] {
+    /* color: transparent; */
+}
+
+.photo-selected {
+    border: solid 2px green;
+}
+
+.photo-default {
+    border: dotted 1px grey;
+}
+
+.btn-del-wrapper:hover .btn-del {
+    transform: scale(1.2, 1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    opacity: 0.8;
+}
+
+.btn-del-wrapper .btn-del {
+    transform: scale(1.0, 1.0);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.btn-del-wrapper:hover .btn-del {
+    bottom: 0;
+    opacity: 1;
+}
+
+.card-img-wrapper {
+    position: relative;
+}
+
+.btn-del {
+    position: absolute;
+    bottom: 4%;
+    left: auto;
+    right: auto;
+    margin-right: 0;
+    margin-left: 0;
+    opacity: 0;
+}
+
+.animate {
+    transition: all 0.3s ease-in-out;
+}

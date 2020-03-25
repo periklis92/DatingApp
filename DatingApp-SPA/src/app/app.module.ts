@@ -26,6 +26,8 @@ import { MemberDetailResolver, MemberListResolver, MemberEditResolver } from './
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PreventUnsavedChanges } from './_guards/prevent.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TimePipe } from './_pipes/time.pipe';
+import { DatePipe } from '@angular/common';
 
 export function getToken() {
    return localStorage.getItem('token');
@@ -44,6 +46,7 @@ export function getToken() {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
+      TimePipe
    ],
    imports: [
       BrowserModule,

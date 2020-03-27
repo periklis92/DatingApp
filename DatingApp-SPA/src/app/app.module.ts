@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -22,7 +22,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import { MemberDetailResolver, MemberListResolver, MemberEditResolver } from './_resolvers/member-resolver';
+import { MemberDetailResolver, MemberListResolver, MemberEditResolver } from './_resolvers/member.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PreventUnsavedChanges } from './_guards/prevent.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
@@ -59,6 +59,8 @@ export function getToken() {
       TabsModule.forRoot(),
       NgxGalleryModule,
       FileUploadModule,
+      ButtonsModule.forRoot(),
+      PaginationModule.forRoot(),
       BsDatepickerModule.forRoot(),
       JwtModule.forRoot({
          config: {

@@ -5,7 +5,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import { MemberDetailResolver, MemberListResolver, MemberEditResolver } from './_resolvers/member-resolver';
+import { MemberDetailResolver, MemberListResolver, MemberEditResolver } from './_resolvers/member.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PreventUnsavedChanges } from './_guards/prevent.guard';
 

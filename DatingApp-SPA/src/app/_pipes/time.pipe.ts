@@ -19,8 +19,10 @@ export class TimePipe implements PipeTransform {
       return Math.round(seconds / 60) + ' minutes ago';
     } else if (seconds < 86400) {
       return Math.round(seconds / 3600) + ' hours ago';
-    } else {
+    } else if (seconds < 86400 * 365) {
       return (Math.round(seconds / 86400).toString()) + ' days ago';
+    } else {
+      return (Math.round(seconds / (86400 * 365)).toString()) + ' years ago';
     }
   }
 

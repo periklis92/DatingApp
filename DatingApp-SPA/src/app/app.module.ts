@@ -28,6 +28,7 @@ import { PreventUnsavedChanges } from './_guards/prevent.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { TimePipe } from './_pipes/time.pipe';
 import { DatePipe } from '@angular/common';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 export function getToken() {
    return localStorage.getItem('token');
@@ -76,7 +77,8 @@ export function getToken() {
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      ListsResolver
    ],
    bootstrap: [
       AppComponent

@@ -1,22 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryImage, NgxGalleryOptions } from 'ngx-gallery-9';
+import { TabsetComponent } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
   styleUrls: ['./member-detail.component.css']
 })
-export class MemberDetailComponent implements OnInit {
+export class MemberDetailComponent implements OnInit, AfterViewInit {
+  @ViewChild('memberTabs') memberTabs: TabsetComponent;
   user: User;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private userService: UserService, private alertify: AlertifyService, 
-              private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private alertify: AlertifyService,
+              private route: ActivatedRoute, private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -33,7 +35,18 @@ export class MemberDetailComponent implements OnInit {
         preview: false
       }
     ];
+
     this.galleryImages = this.getImages();
+    setInterval(() => {
+      this.ref.markForCheck();
+      this.route.queryParams.subscribe(params => {
+        const selectedTab = params.tab;
+        this.memberTabs.tabs[selectedTab].active = true;
+    });
+    }, 50);
+  }
+
+  ngAfterViewInit() {
   }
 
   getImages() {
@@ -48,6 +61,10 @@ export class MemberDetailComponent implements OnInit {
     }
 
     return imageUrls;
+  }
+
+  selectTab(tabID: number) {
+    this.memberTabs.tabs[tabID].active = true;
   }
 
 }

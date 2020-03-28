@@ -1,9 +1,10 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DatingApp.API.Migrations
 {
-    public partial class MessageService : Migration
+    public partial class MessageEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,6 +13,8 @@ namespace DatingApp.API.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", 
+                        MySqlValueGenerationStrategy.IdentityColumn)
                         .Annotation("Sqlite:Autoincrement", true),
                     SenderID = table.Column<int>(nullable: false),
                     RecipientID = table.Column<int>(nullable: false),

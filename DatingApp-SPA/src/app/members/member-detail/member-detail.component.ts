@@ -37,16 +37,13 @@ export class MemberDetailComponent implements OnInit, AfterViewInit {
     ];
 
     this.galleryImages = this.getImages();
-    setInterval(() => {
-      this.ref.markForCheck();
-      this.route.queryParams.subscribe(params => {
-        const selectedTab = params.tab;
-        this.memberTabs.tabs[selectedTab].active = true;
-    });
-    }, 50);
   }
 
   ngAfterViewInit() {
+    this.route.queryParams.subscribe(params => {
+      const selectedTab = params.tab;
+      this.memberTabs.tabs[selectedTab].active = true;
+    });
   }
 
   getImages() {

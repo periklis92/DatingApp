@@ -8,8 +8,8 @@ namespace DatingApp.API.DTOs
         public int SenderID { get; set; }
         public string SenderKnownAs { get; set; }
         public string SenderPhotoUrl { get; set; }
-        public int ReciepientID { get; set; }
-        public string ReciepientPhotoUrl { get; set; }
+        public int RecipientID { get; set; }
+        public string RecipientPhotoUrl { get; set; }
         public string RecipientKnownAs { get; set; }
         public string Content { get; set; }
         public bool IsRead { get; set; }

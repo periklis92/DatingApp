@@ -28,7 +28,7 @@ export class MemberMessagesComponent implements OnInit {
     .pipe(
       tap(messages => {
         for(let i = 0; i < messages.length; i ++) {
-          if (messages[i].isRead === false && messages[i].recipientID === currentUserID) {
+          if (messages[i].isRead === false && messages[i].recipientID == currentUserID) {
             this.userService.markAsRead(currentUserID, messages[i].id);
           }
         }

@@ -43,8 +43,6 @@ export class UserService {
       params = params.append('likees', 'true');
     }
 
-    console.log('UserService: ' + likesParam);
-
     return this.http.get<User[]>(this.baseUrl + 'user', { observe: 'response', params})
       .pipe (
         map (response => {
@@ -119,6 +117,7 @@ export class UserService {
   }
 
   markAsRead(userID: number, messageID: number) {
+    console.log(this.baseUrl + 'user/' + userID + '/messages/' + messageID + '/read');
     this.http.post(this.baseUrl + 'user/' + userID + '/messages/' + messageID + '/read', {})
       .subscribe();
   }
